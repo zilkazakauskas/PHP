@@ -39,7 +39,6 @@ interface Ninjaaa {
 
 $workerNinja = new WorkerNinja;
 
-//echo $workerNinja->showAge();
-//echo $workerNinja->whatIsTheName();
-
-print_r($workerNinja);
+echo $workerNinja->showAge();
+echo '<br>';
+echo $workerNinja->whatIsTheName();
