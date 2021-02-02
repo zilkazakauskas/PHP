@@ -12,5 +12,3 @@ $result = mysqli_query($link, $sgl);
 while ($row = mysqli_fetch_array($result)) {
     $publifications[]=new $row['type']($row);
 }
-
-
