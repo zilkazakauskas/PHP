@@ -63,9 +63,10 @@ $dublicateCount = 0;
 while ($row = mysqli_fetch_assoc($query)) {
     if ($row['shortContent'] == $_POST['shortContent']) {
         $dublicateCount++;
+        break;
     }
 }
-if ($dublicateCount > 1) {
+if ($dublicateCount > 0) {
     mysqli_rollback($link);
 }else{
     mysqli_commit($link);
