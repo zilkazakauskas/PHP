@@ -42,6 +42,7 @@
                 <p>
                     <?php
                     require'get_topics.php';
+                    printTopicsSelection();
                     ?>
                 </p>
             </div>
