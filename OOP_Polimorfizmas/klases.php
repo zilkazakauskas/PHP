@@ -23,15 +23,15 @@ class Article {
         $this->addDate = $row['addDate'];
         $this->preview = $row['preview'];
     }
-    
+
     public function printPhotosLink(){
         echo "<br> <a href='preview_photos.php?id=$this->id'>Daugiau nuotrauku</a>";
     }
-    
+
     public function printAllContentLink() {
         echo "<br> <a href='all_content_print.php?id=$this->id'>Visa straipsnio info</a>";
     }
-    
+
     public function printAllArticleContent() {
         echo "<br> <h3>" . $this->title . "</h3>";
         echo '<br>' . $this->author;
@@ -53,6 +53,14 @@ class NewsArticle extends Article {
         echo "<br> <small>" . $this->author . "</small>";
         echo '<br>' . $this->content;
         echo "<br> <small>" . $this->addDate . "</small>";
+        if (isset($_COOKIE['vartotojas'])) {
+            if ($_COOKIE['role'] == 'standart' || $_COOKIE['role'] == 'author' && $this->author != $_COOKIE['vardas']) {
+                echo "<p><button><a style= 'text-decoration: none' href='komentaro_forma.php?id=$this->id'>Rasyti komentara</a></button></p>";
+            }
+            if ($_COOKIE['role'] == 'admin') {
+                echo "<p><button><a style= 'text-decoration: none' href='delete_article.php?id=$this->id'>Istrinti straipsni</a></button></p>";
+            }
+        }
     }
 
 }
@@ -64,6 +72,14 @@ class ShortArticle extends Article {
         echo '<br>' . $this->type;
         echo "<br> <small>" . $this->author . "</small>";
         echo "<br> <small>" . $this->addDate . "</small>";
+        if (isset($_COOKIE['vartotojas'])) {
+            if ($_COOKIE['role'] == 'standart' || $_COOKIE['role'] == 'author' && $this->author != $_COOKIE['vardas']) {
+                echo "<p><button><a style= 'text-decoration: none' href='komentaro_forma.php?id=$this->id'>Rasyti komentara</a></button></p>";
+            }
+            if ($_COOKIE['role'] == 'admin') {
+                echo "<p><button><a style= 'text-decoration: none' href='delete_article.php?id=$this->id'>Istrinti straipsni</a></button></p>";
+            }
+        }
     }
 
 }
@@ -76,7 +92,15 @@ class PhotoArticle extends Article {
         echo "<br> <small>" . $this->author . "</small>";
         echo '<br>' . $this->shortContent;
         echo "<br> <small>" . $this->addDate . "</small>";
-        echo "<br> <img src=" . $this->preview . ">";
+        echo "<br> <img src=" . $this->preview . "><br>";
+        if (isset($_COOKIE['vartotojas'])) {
+            if ($_COOKIE['role'] == 'standart' || $_COOKIE['role'] == 'author' && $this->author != $_COOKIE['vardas']) {
+                echo "<p><button><a style= 'text-decoration: none' href='komentaro_forma.php?id=$this->id'>Rasyti komentara</a></button></p>";
+            }
+            if ($_COOKIE['role'] == 'admin') {
+                echo "<p><button><a style= 'text-decoration: none' href='delete_article.php?id=$this->id'>Istrinti straipsni</a></button></p>";
+            }
+        }
     }
 
 }

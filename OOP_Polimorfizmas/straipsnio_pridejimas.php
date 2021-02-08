@@ -66,10 +66,12 @@ while ($row = mysqli_fetch_assoc($query)) {
         break;
     }
 }
-if ($dublicateCount > 0) {
+if ($dublicateCount > 1 && mysqli_errno($link)) {
     mysqli_rollback($link);
+    echo 'Nepavyko prideti straipsnio.';
 }else{
     mysqli_commit($link);
+    header("Location: perziura.php");
 }
 //echo '<pre>';
 //print_r($images);
