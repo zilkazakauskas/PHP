@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2021 at 01:18 PM
+-- Generation Time: Feb 08, 2021 at 04:17 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -49,7 +49,8 @@ INSERT INTO `articles` (`id`, `author`, `shortContent`, `content`, `publishDate`
 (3, 'PetrPetras', 'velgi trumpas', 'tekstas nedidelis', '2020-04-03', 'PhotoArticle', 'Pavadinimas1', '2021-01-29 11:57:02', 'https://findicons.com/files/icons/725/colobrush/128/paper_plane.png'),
 (4, 'Vardenis su Pavarde', 'nebeturiu ideju', 'ilgiausias straipsnis ilgiausias straipsnis ilgiausias straipsnis ilgiausias straipsnis ilgiausias straipsnis ilgiausias straipsnis ilgiausias straipsnis ', '2020-04-06', 'NewsArticle', 'Ketvirtas', '2021-01-28 09:46:47', ''),
 (5, 'Betkas', 'bla', 'blabla', '2020-05-04', 'NewsArticle', 'Nesamone', '2021-01-28 09:47:00', ''),
-(6, 'Veikejas', 'trumpulis', 'Ilgas tekstas', '2020-05-25', 'PhotoArticle', 'Vynuoges', '2021-01-29 11:55:46', 'https://findicons.com/files/icons/326/pry_system/128/desktop_black.png');
+(6, 'Veikejas', 'trumpulis', 'Ilgas tekstas', '2020-05-25', 'PhotoArticle', 'Vynuoges', '2021-01-29 11:55:46', 'https://findicons.com/files/icons/326/pry_system/128/desktop_black.png'),
+(22, 'zdfdfasdf', 'asdfasdfasfasd', 'asdfasdfsadas', '0000-00-00', 'PhotoArticle', 'dsfdf', '0000-00-00 00:00:00', 'https://findicons.com/files/icons/1620/crystal_project/128/clicknrun.png');
 
 -- --------------------------------------------------------
 
@@ -83,7 +84,9 @@ INSERT INTO `preview_images` (`id`, `article_id`, `image`) VALUES
 (13, 4, 'https://findicons.com/files/icons/2198/dark_glass/128/emoticon.png'),
 (14, 4, 'https://findicons.com/files/icons/993/openphone/128/phone.png'),
 (15, 5, 'https://findicons.com/files/icons/1015/world_cup_flags/128/usa.png'),
-(16, 5, 'https://findicons.com/files/icons/2134/tourism/128/liberty200.png');
+(16, 5, 'https://findicons.com/files/icons/2134/tourism/128/liberty200.png'),
+(33, 22, 'https://findicons.com/files/icons/183/gis_gps_map/128/airport.png'),
+(34, 22, 'https://findicons.com/files/icons/2212/carpelinx/128/password.png');
 
 -- --------------------------------------------------------
 
@@ -112,7 +115,13 @@ INSERT INTO `straipsniai_temos` (`straipsnio_id`, `temos_id`) VALUES
 (6, 1),
 (6, 4),
 (1, 5),
-(5, 5);
+(5, 5),
+(22, 1),
+(22, 2),
+(22, 3),
+(22, 4),
+(22, 5),
+(22, 6);
 
 -- --------------------------------------------------------
 
@@ -136,6 +145,50 @@ INSERT INTO `temos` (`id`, `pavadinimas`) VALUES
 (4, 'Uzsienis'),
 (5, 'Orai'),
 (6, 'Laisvalaikis');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL,
+  `full_name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `role`, `full_name`) VALUES
+(1, 'autorius', 'slaptazodis', 'author', 'Veikejas'),
+(2, 'standartinis', 'slaptazodis', 'standart', NULL),
+(3, 'administratorius', 'slaptazodis', 'admin', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_article_comment`
+--
+
+CREATE TABLE `user_article_comment` (
+  `id` int(11) NOT NULL,
+  `article_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `comment` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_article_comment`
+--
+
+INSERT INTO `user_article_comment` (`id`, `article_id`, `user_id`, `comment`) VALUES
+(2, 3, 1, 'geras straipsnis'),
+(3, 1, 1, 'neblogas straipsniukas');
 
 --
 -- Indexes for dumped tables
@@ -168,6 +221,19 @@ ALTER TABLE `temos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_article_comment`
+--
+ALTER TABLE `user_article_comment`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `article_id` (`article_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -175,19 +241,31 @@ ALTER TABLE `temos`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `preview_images`
 --
 ALTER TABLE `preview_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `temos`
 --
 ALTER TABLE `temos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `user_article_comment`
+--
+ALTER TABLE `user_article_comment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -205,6 +283,12 @@ ALTER TABLE `preview_images`
 ALTER TABLE `straipsniai_temos`
   ADD CONSTRAINT `straipsniai_temos_ibfk_1` FOREIGN KEY (`straipsnio_id`) REFERENCES `articles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `straipsniai_temos_ibfk_2` FOREIGN KEY (`temos_id`) REFERENCES `temos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user_article_comment`
+--
+ALTER TABLE `user_article_comment`
+  ADD CONSTRAINT `user_article_comment_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
