@@ -69,6 +69,14 @@ class NewsArticle extends Article {
         $result = mysqli_query($link, $sql);
         echo "<br><strong>Komentaru skaicius: </strong>" . mysqli_num_rows($result)."<br>";
     }
+    
+    public function printUpdateDate() {
+        require 'sql_connection.php';
+        $sql =  "SELECT updateDate FROM articles WHERE id=$this->id";
+        $result = mysqli_query($link, $sql);
+        $row = mysqli_fetch_assoc($result);
+        echo '<p style="color: red;">Atnaujinta: '. $row['updateDate'].'</p>';
+    }
 
 }
 
@@ -94,6 +102,14 @@ class ShortArticle extends Article {
         $sql = "SELECT comment FROM user_article_comment WHERE article_id=$this->id";
         $result = mysqli_query($link, $sql);
         echo "<br><strong>Komentaru skaicius: </strong>" . mysqli_num_rows($result)."<br>";
+    }
+    
+    public function printUpdateDate() {
+        require 'sql_connection.php';
+        $sql =  "SELECT updateDate FROM articles WHERE id=$this->id";
+        $result = mysqli_query($link, $sql);
+        $row = mysqli_fetch_assoc($result);
+        echo '<p style="color: red;">Atnaujinta: '. $row['updateDate'].'</p>';
     }
 
 }
@@ -122,6 +138,14 @@ class PhotoArticle extends Article {
         $sql = "SELECT comment FROM user_article_comment WHERE article_id=$this->id";
         $result = mysqli_query($link, $sql);
         echo "<br><strong>Komentaru skaicius: </strong>" . mysqli_num_rows($result)."<br>";
+    }
+    
+    public function printUpdateDate() {
+        require 'sql_connection.php';
+        $sql =  "SELECT updateDate FROM articles WHERE id=$this->id";
+        $result = mysqli_query($link, $sql);
+        $row = mysqli_fetch_assoc($result);
+        echo '<p style="color: red;">Atnaujinta: '. $row['updateDate'].'</p>';
     }
 
 }

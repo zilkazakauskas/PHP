@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2021 at 04:17 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- Generation Time: Feb 15, 2021 at 12:06 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,22 +35,23 @@ CREATE TABLE `articles` (
   `publishDate` date NOT NULL,
   `type` varchar(40) COLLATE utf16_lithuanian_ci NOT NULL,
   `title` varchar(255) COLLATE utf16_lithuanian_ci NOT NULL,
-  `addDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `preview` varchar(255) COLLATE utf16_lithuanian_ci NOT NULL
+  `addDate` date NOT NULL DEFAULT current_timestamp(),
+  `preview` varchar(255) COLLATE utf16_lithuanian_ci NOT NULL,
+  `updateDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_lithuanian_ci;
 
 --
 -- Dumping data for table `articles`
 --
 
-INSERT INTO `articles` (`id`, `author`, `shortContent`, `content`, `publishDate`, `type`, `title`, `addDate`, `preview`) VALUES
-(1, 'John Doe', 'Shorty Shorts', 'Very shorty shorts were found', '2020-04-01', 'PhotoArticle', 'Kazkoks pavadinimas', '2021-01-29 11:47:50', 'https://findicons.com/files/icons/542/soccer/128/basket_full.png'),
-(2, 'Jonas Jon', 'trumptext', 'ilgesnis tekstukas', '2020-04-02', 'ShortArticle', 'Blablabla', '2021-01-28 09:46:22', ''),
-(3, 'PetrPetras', 'velgi trumpas', 'tekstas nedidelis', '2020-04-03', 'PhotoArticle', 'Pavadinimas1', '2021-01-29 11:57:02', 'https://findicons.com/files/icons/725/colobrush/128/paper_plane.png'),
-(4, 'Vardenis su Pavarde', 'nebeturiu ideju', 'ilgiausias straipsnis ilgiausias straipsnis ilgiausias straipsnis ilgiausias straipsnis ilgiausias straipsnis ilgiausias straipsnis ilgiausias straipsnis ', '2020-04-06', 'NewsArticle', 'Ketvirtas', '2021-01-28 09:46:47', ''),
-(5, 'Betkas', 'bla', 'blabla', '2020-05-04', 'NewsArticle', 'Nesamone', '2021-01-28 09:47:00', ''),
-(6, 'Veikejas', 'trumpulis', 'Ilgas tekstas', '2020-05-25', 'PhotoArticle', 'Vynuoges', '2021-01-29 11:55:46', 'https://findicons.com/files/icons/326/pry_system/128/desktop_black.png'),
-(22, 'zdfdfasdf', 'asdfasdfasfasd', 'asdfasdfsadas', '0000-00-00', 'PhotoArticle', 'dsfdf', '0000-00-00 00:00:00', 'https://findicons.com/files/icons/1620/crystal_project/128/clicknrun.png');
+INSERT INTO `articles` (`id`, `author`, `shortContent`, `content`, `publishDate`, `type`, `title`, `addDate`, `preview`, `updateDate`) VALUES
+(1, 'John Doe', 'Shorty Shorts', 'Very shorty shorts were found here', '2020-04-01', 'PhotoArticle', 'Kazkoks pavadinimas', '2021-01-29', 'https://findicons.com/files/icons/542/soccer/128/basket_full.png', '2021-02-15 10:18:58'),
+(2, 'Jonas Jon', 'trumptext', 'ilgesnis tekstukas', '2020-04-02', 'ShortArticle', 'Blablabla', '2021-01-28', '', '2021-02-15 10:27:25'),
+(3, 'PetrPetras', 'velgi trumpas', 'tekstas nedidelis', '2020-04-03', 'PhotoArticle', 'Pavadinimas1', '2021-01-29', 'https://findicons.com/files/icons/725/colobrush/128/paper_plane.png', '2021-02-15 10:27:08'),
+(4, 'Vardenis su Pavarde', 'nebeturiu ideju', 'ilgiausias straipsnis ilgiausias straipsnis ilgiausias straipsnis ilgiausias straipsnis ilgiausias straipsnis ilgiausias straipsnis ilgiausias straipsnis', '2020-04-06', 'NewsArticle', 'Ketvirtas', '2021-01-28', '', '2021-02-15 10:26:49'),
+(5, 'Betkas', 'bla', 'blabla', '2020-05-04', 'NewsArticle', 'Nesamone', '2021-01-28', '', '2021-02-15 10:26:33'),
+(6, 'Veikejas', 'trumpulis', 'Ilgas tekstas', '2020-05-25', 'PhotoArticle', 'Vynuoges', '2021-01-29', 'https://findicons.com/files/icons/326/pry_system/128/desktop_black.png', '2021-02-15 10:26:08'),
+(33, 'Vardenis Pavardenis', 'tokio dar nebuvo tikrai', 'cia yra tekstas, kurio dar tikrai nebuvo jokiame kitame straipsnyje', '2021-02-26', 'PhotoArticle', 'DEMESIO DEMESIO!', '2021-02-15', 'https://findicons.com/files/icons/2212/carpelinx/128/password.png', '2021-02-15 10:39:30');
 
 -- --------------------------------------------------------
 
@@ -85,8 +86,8 @@ INSERT INTO `preview_images` (`id`, `article_id`, `image`) VALUES
 (14, 4, 'https://findicons.com/files/icons/993/openphone/128/phone.png'),
 (15, 5, 'https://findicons.com/files/icons/1015/world_cup_flags/128/usa.png'),
 (16, 5, 'https://findicons.com/files/icons/2134/tourism/128/liberty200.png'),
-(33, 22, 'https://findicons.com/files/icons/183/gis_gps_map/128/airport.png'),
-(34, 22, 'https://findicons.com/files/icons/2212/carpelinx/128/password.png');
+(51, 33, 'https://findicons.com/files/icons/183/gis_gps_map/128/airport.png'),
+(52, 33, 'https://findicons.com/files/icons/2212/carpelinx/128/password.png');
 
 -- --------------------------------------------------------
 
@@ -116,12 +117,9 @@ INSERT INTO `straipsniai_temos` (`straipsnio_id`, `temos_id`) VALUES
 (6, 4),
 (1, 5),
 (5, 5),
-(22, 1),
-(22, 2),
-(22, 3),
-(22, 4),
-(22, 5),
-(22, 6);
+(33, 2),
+(33, 3),
+(33, 4);
 
 -- --------------------------------------------------------
 
@@ -157,17 +155,19 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL,
-  `full_name` varchar(255) DEFAULT NULL
+  `full_name` varchar(255) DEFAULT NULL,
+  `user_status` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `role`, `full_name`) VALUES
-(1, 'autorius', 'slaptazodis', 'author', 'Veikejas'),
-(2, 'standartinis', 'slaptazodis', 'standart', NULL),
-(3, 'administratorius', 'slaptazodis', 'admin', NULL);
+INSERT INTO `users` (`id`, `username`, `password`, `role`, `full_name`, `user_status`) VALUES
+(1, 'autorius', 'slaptazodis', 'author', 'Veikejas', 'active'),
+(2, 'standartinis', 'slaptazodis', 'standart', 'Vardenis Pavardenis', 'active'),
+(3, 'administratorius', 'slaptazodis', 'admin', NULL, 'active'),
+(8, 'naujas', 'slaptazodis', 'author', 'Vardenis Pavardenis', NULL);
 
 -- --------------------------------------------------------
 
@@ -188,7 +188,12 @@ CREATE TABLE `user_article_comment` (
 
 INSERT INTO `user_article_comment` (`id`, `article_id`, `user_id`, `comment`) VALUES
 (2, 3, 1, 'geras straipsnis'),
-(3, 1, 1, 'neblogas straipsniukas');
+(3, 1, 1, 'neblogas straipsniukas'),
+(6, 4, 1, 'kazkoks komentaras'),
+(7, 3, 1, 'dar vienas komentaras'),
+(8, 3, 2, 'standartinio pirmas komentaras'),
+(9, 3, 2, 'dar vienas komentaras'),
+(10, 5, 1, 'geras straipsnis labai');
 
 --
 -- Indexes for dumped tables
@@ -205,7 +210,7 @@ ALTER TABLE `articles`
 --
 ALTER TABLE `preview_images`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `article_id` (`article_id`);
+  ADD KEY `article_id` (`article_id`) USING BTREE;
 
 --
 -- Indexes for table `straipsniai_temos`
@@ -231,7 +236,7 @@ ALTER TABLE `users`
 --
 ALTER TABLE `user_article_comment`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `article_id` (`article_id`);
+  ADD KEY `article_id` (`article_id`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -241,13 +246,13 @@ ALTER TABLE `user_article_comment`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `preview_images`
 --
 ALTER TABLE `preview_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `temos`
@@ -259,13 +264,13 @@ ALTER TABLE `temos`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user_article_comment`
 --
 ALTER TABLE `user_article_comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
@@ -288,7 +293,7 @@ ALTER TABLE `straipsniai_temos`
 -- Constraints for table `user_article_comment`
 --
 ALTER TABLE `user_article_comment`
-  ADD CONSTRAINT `user_article_comment_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `user_article_comment_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

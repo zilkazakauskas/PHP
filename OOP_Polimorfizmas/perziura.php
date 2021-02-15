@@ -30,6 +30,7 @@
             foreach ($publifications as $item) {
                 $item->printItem();
                 $item->printArticleCommentCount();
+                $item->printUpdateDate();
                 $item->printPhotosLink();
                 $item->printAllContentLink();
                 echo '<hr>';

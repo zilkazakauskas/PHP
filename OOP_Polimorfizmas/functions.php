@@ -43,7 +43,7 @@ function printComments($id) {
     $result = mysqli_query($link, $sql);
 
     if (mysqli_num_rows($result) > 0) {
-        echo'<h2>Comments:</h2>';
+        echo'<h2>Komentarai:</h2>';
     }
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<p>User name: " . $row['username'] . "<br>Comment : " . $row['comment'] . "</p>";
