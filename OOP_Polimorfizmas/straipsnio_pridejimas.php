@@ -1,7 +1,7 @@
 <?php
 
 require 'sql_connection.php';
-require 'get_topics.php';
+require 'functions.php';
 
 echo '<pre>';
 print_r($_POST);

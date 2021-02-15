@@ -1,6 +1,7 @@
 <?php
 require 'sql_connection.php';
 require 'klases.php';
+require 'functions.php';
 
 //PRINTINA VISA STRAIPSNIO INFO
 
@@ -28,5 +29,9 @@ if (!mysqli_connect_errno()) {
 
 //PRINTINA NUOTRAUKAS IS PREVIEW_IMAGES
 
-require 'preview_photos.php';
+printAllPhotos($_GET['id']);
+
+//PRINTINA VISUS KOMENTARUS
+
+printComments($_GET['id']);
 ?>

@@ -24,7 +24,7 @@ class Article {
         $this->preview = $row['preview'];
     }
 
-    public function printPhotosLink(){
+    public function printPhotosLink() {
         echo "<br> <a href='preview_photos.php?id=$this->id'>Daugiau nuotrauku</a>";
     }
 
@@ -63,6 +63,13 @@ class NewsArticle extends Article {
         }
     }
 
+    public function printArticleCommentCount() {
+        require 'sql_connection.php';
+        $sql = "SELECT comment FROM user_article_comment WHERE article_id=$this->id";
+        $result = mysqli_query($link, $sql);
+        echo "<br><strong>Komentaru skaicius: </strong>" . mysqli_num_rows($result)."<br>";
+    }
+
 }
 
 class ShortArticle extends Article {
@@ -80,6 +87,13 @@ class ShortArticle extends Article {
                 echo "<p><button><a style= 'text-decoration: none' href='delete_article.php?id=$this->id'>Istrinti straipsni</a></button></p>";
             }
         }
+    }
+
+    public function printArticleCommentCount() {
+        require 'sql_connection.php';
+        $sql = "SELECT comment FROM user_article_comment WHERE article_id=$this->id";
+        $result = mysqli_query($link, $sql);
+        echo "<br><strong>Komentaru skaicius: </strong>" . mysqli_num_rows($result)."<br>";
     }
 
 }
@@ -101,6 +115,13 @@ class PhotoArticle extends Article {
                 echo "<p><button><a style= 'text-decoration: none' href='delete_article.php?id=$this->id'>Istrinti straipsni</a></button></p>";
             }
         }
+    }
+
+    public function printArticleCommentCount() {
+        require 'sql_connection.php';
+        $sql = "SELECT comment FROM user_article_comment WHERE article_id=$this->id";
+        $result = mysqli_query($link, $sql);
+        echo "<br><strong>Komentaru skaicius: </strong>" . mysqli_num_rows($result)."<br>";
     }
 
 }

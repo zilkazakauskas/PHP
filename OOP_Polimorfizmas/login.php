@@ -18,6 +18,8 @@
             Password: <input type="password" name="password" placeholder="Slaptazodis" required> &nbsp;
             <input type="submit" name="prisijungti" value="Prisijungti">
         </form>
+        
+        <p><strong><a href="perziura.php">Narsyti neprisijungus</a></strong></p>
 
     </body>
 </html>
