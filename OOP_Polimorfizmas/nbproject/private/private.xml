@@ -2,30 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/user_delete_all.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/straipsnio_pridejimas.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/perziura.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/validate_login.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/functions.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/user_articles_delete.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/user_block.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/duomenys.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/users_manage_panel.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/user_unblock.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/komentaro_forma.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/comment_submit.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/user_comments_delete.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/delete_article.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/user_delete.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/all_content_print.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/straipsnio_forma.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/klases.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/sql_connection.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/login.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/logout.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/preview_photos.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/OOP_Polimorfizmas/index.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
